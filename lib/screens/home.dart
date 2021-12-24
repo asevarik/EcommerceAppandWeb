@@ -6,6 +6,7 @@ import 'package:ECommerceApp/Common_utils/provider/Products.dart';
 import 'package:ECommerceApp/Models/user.dart';
 import 'package:ECommerceApp/screens/inner_screens/Categories_FeedScreen.dart';
 import 'package:ECommerceApp/screens/inner_screens/brands_navigation_rail%20copy.dart';
+import 'package:ECommerceApp/screens/user_info.dart';
 import 'package:backdrop/app_bar.dart';
 import 'package:backdrop/button.dart';
 import 'package:backdrop/scaffold.dart';
@@ -13,7 +14,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
-import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     final productsData = Provider.of<ProductProvider>(context);
     final popularItems = productsData.popularProducts;
     productsData.fetchProducts();
-   
+
     return BackdropScaffold(
       frontLayerBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
       headerHeight: MediaQuery.of(context).size.height * 0.25,
@@ -76,7 +76,9 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: <Widget>[
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(UserInfo.routename);
+              },
               icon: CircleAvatar(
                 radius: 15,
                 backgroundColor: Colors.white,

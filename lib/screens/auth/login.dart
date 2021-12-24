@@ -1,7 +1,5 @@
-import 'package:ECommerceApp/Common_utils/Consts/Size_config.dart';
 import 'package:ECommerceApp/Common_utils/Consts/colors.dart';
 import 'package:ECommerceApp/Common_utils/Widgets/GlobalWidgets/alertDialog.dart';
-import 'package:ECommerceApp/Models/user.dart';
 import 'package:ECommerceApp/Services/AuthController.dart';
 import 'package:ECommerceApp/screens/auth/forgotPassword.dart';
 import 'package:flutter/material.dart';
@@ -273,22 +271,6 @@ class _LoginPageState extends State<LoginPage> {
                               .textTheme
                               .headline5
                               .copyWith(color: Colors.red),
-                        )),
-                    OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          shape: StadiumBorder(),
-                          side: BorderSide(
-                            width: 2,
-                            color: Colors.deepPurple.shade200,
-                          ),
-                        ),
-                        child: Text(
-                          "Facebook",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              .copyWith(color: Colors.purple),
                         )),
                   ],
                 ),

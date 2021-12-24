@@ -13,9 +13,11 @@ class CartEmpty extends StatelessWidget {
           width: double.infinity,
           height: MediaQuery.maybeOf(context).size.height * 0.4,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/emptycart.png'))),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/images/emptycart.png'),
+            ),
+          ),
         ),
         Text("Ouhh..it's empty in here!",
             textAlign: TextAlign.center,
@@ -31,7 +33,7 @@ class CartEmpty extends StatelessWidget {
         ),
         GradientButton(
             press: () {
-              Navigator.of(context).pushNamed(FeedPage.Routename);
+              // Navigator.of(context).pushNamed(FeedPage.Routename);
             },
             title: "Shop Now"),
       ],

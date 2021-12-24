@@ -8,8 +8,8 @@ class DynamicThememodal {
 }
 
 List<DynamicThememodal> themes = [
-  DynamicThememodal(Icons.ac_unit, "Ambient grey"),
-  DynamicThememodal(Icons.three_p, "Enviourmental Green"),
+  DynamicThememodal(Icons.ac_unit, "Dora the Explora"),
+  DynamicThememodal(Icons.three_p, "Ambient Grey"),
   // DynamicThememodal(Icons.fireplace, "Flaming Fire"),
-  DynamicThememodal(Icons.person, "Dora the Explora"),
+  DynamicThememodal(Icons.person, "Enviormental Green"),
 ];

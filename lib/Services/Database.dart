@@ -7,8 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:uuid/uuid.dart';
 
 class DataBaseServices {
-  Future<bool> userRegistration(
-      String uid, name, String image, String phoneNumber, String email) async {
+  Future<bool> userRegistration(String uid, name, String image,
+      String phoneNumber, String email, String address) async {
     var date = DateTime.now();
     var dateParse = DateTime.parse(date.toString());
     var formattedDate = "${dateParse.day} ${dateParse.month} ${dateParse.year}";
@@ -19,6 +19,7 @@ class DataBaseServices {
       'phoneNumber': phoneNumber,
       'image': image,
       'JoinedAt': formattedDate,
+      'Address': address,
     });
     return true;
   }
@@ -30,6 +31,14 @@ class DataBaseServices {
     return await ref.getDownloadURL();
   }
 
+  Future<bool> updateUserValue(String uid, Map<String, String> updated_value) {
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .update(updated_value)
+        .then((value) => true);
+  }
+
   Future<UserData> getUserData(String uid) async {
     final DocumentSnapshot userDoc =
         await FirebaseFirestore.instance.collection('users').doc(uid).get();
@@ -39,6 +48,17 @@ class DataBaseServices {
     UserData.phone = userDoc.get('phoneNumber');
     UserData.photourl = userDoc.get('image');
     UserData.joinedDate = userDoc.get('JoinedAt');
+    UserData.address = userDoc.get('Address');
+  }
+
+  Future<bool> UserExsistornot(String uid) async {
+    try {
+      final DocumentSnapshot userDoc =
+          await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   Future<void> setorders(

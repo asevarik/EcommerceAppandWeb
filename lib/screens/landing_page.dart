@@ -150,7 +150,7 @@ class _LandingPageState extends State<LandingPage>
                 Expanded(
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, LoginPage.routeName);
+                        Navigator.pushNamed(context, SignUpPage.routeName);
                       },
                       style: ButtonStyle(
                           backgroundColor:
@@ -229,12 +229,15 @@ class _LandingPageState extends State<LandingPage>
                             print(_authController.getUser());
                           } else {
                             final user = _authController.getUser();
+                            final res = await DataBaseServices()
+                                .UserExsistornot(user.uid);
                             await DataBaseServices().userRegistration(
                                 user.uid,
                                 user.displayName,
                                 user.photoURL,
                                 user.phoneNumber,
-                                user.email);
+                                user.email,
+                                'NA');
                           }
                         },
                         style: OutlinedButton.styleFrom(

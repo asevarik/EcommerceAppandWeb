@@ -21,13 +21,16 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  ant_icons: ^1.0.0
   backdrop: ^0.6.2
   badges: ^2.0.1
   cached_network_image: ^3.1.0
   carousel_pro: ^1.0.0
+  carousel_slider: ^4.0.0
   cloud_firestore: ^2.5.2
   cupertino_icons: ^1.0.0
   curved_navigation_bar: ^1.0.1
+  feather_icons: ^1.0.1
   firebase_auth: ^3.1.0
   firebase_core: ^1.6.0
   firebase_storage: ^10.0.3
@@ -40,7 +43,9 @@ dependencies:
   google_sign_in: ^5.1.0
   http: ^0.13.3
   image_picker: ^0.8.4
+  ionicons: ^0.1.2
   list_tile_switch: ^1.0.0
+  modal_bottom_sheet: ^2.0.0
   progress_dialog: ^1.2.2
   provider: ^5.0.0
   razorpay_flutter: ^1.2.7

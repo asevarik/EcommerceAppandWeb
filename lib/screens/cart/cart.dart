@@ -3,8 +3,6 @@ import 'package:ECommerceApp/Common_utils/Widgets/CartscreenWidgets/Cartempty.da
 import 'package:ECommerceApp/Common_utils/Widgets/GlobalWidgets/alertDialog.dart';
 import 'package:ECommerceApp/Common_utils/provider/cart_provider.dart';
 import 'package:ECommerceApp/Models/user.dart';
-import 'package:ECommerceApp/Services/AuthController.dart';
-import 'package:ECommerceApp/Services/Database.dart';
 import 'package:ECommerceApp/screens/intermediatepay.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

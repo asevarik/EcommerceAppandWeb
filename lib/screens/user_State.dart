@@ -1,6 +1,8 @@
+import 'package:ECommerceApp/Common_utils/Widgets/ResponsiveWidget.dart';
 import 'package:ECommerceApp/Models/user.dart';
 import 'package:ECommerceApp/screens/bottom_bar.dart';
 import 'package:ECommerceApp/screens/landing_page.dart';
+import 'package:ECommerceApp/webPlatformWidgets/HomePage/homePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,30 +19,33 @@ class _UserStateState extends State<UserState> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, usersnapshot) {
-          if (usersnapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (usersnapshot.connectionState == ConnectionState.active) {
-            if (usersnapshot.hasData) {
-              void getsetUserData() async {
-                await UserData().getuserData();
+    return ResponsiveWidget.isSmallScreen(context)
+        ? StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, usersnapshot) {
+              if (usersnapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (usersnapshot.connectionState ==
+                  ConnectionState.active) {
+                if (usersnapshot.hasData) {
+                  void getsetUserData() async {
+                    await UserData().getuserData();
+                  }
+
+                  getsetUserData();
+
+                  return BottomBarScreen();
+                } else {
+                  return LandingPage();
+                }
+              } else {
+                return Center(
+                  child: Text("Some Error Occured"),
+                );
               }
-
-              getsetUserData();
-
-              return BottomBarScreen();
-            } else {
-              return LandingPage();
-            }
-          } else {
-            return Center(
-              child: Text("Some Error Occured"),
-            );
-          }
-        });
+            })
+        : WHomePage();
   }
 }

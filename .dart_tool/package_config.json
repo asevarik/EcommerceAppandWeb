@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "ant_icons",
+      "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/ant_icons-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.6.1",
       "packageUri": "lib/",
@@ -48,6 +54,12 @@
       "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_pro-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "carousel_slider",
+      "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "characters",
@@ -126,6 +138,12 @@
       "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "feather_icons",
+      "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/feather_icons-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
     },
     {
       "name": "ffi",
@@ -344,6 +362,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "ionicons",
+      "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/ionicons-0.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
       "packageUri": "lib/",
@@ -364,6 +388,12 @@
     {
       "name": "meta",
       "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "modal_bottom_sheet",
+      "rootUri": "file:///Users/Abhishek-Sevarik/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/modal_bottom_sheet-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -662,7 +692,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-09-29T06:53:31.571476Z",
+  "generated": "2021-11-25T17:08:31.764151Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

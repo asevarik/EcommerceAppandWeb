@@ -11,7 +11,7 @@ class FeedPage extends StatelessWidget {
     final productsProvider = Provider.of<ProductProvider>(context);
     final popular = ModalRoute.of(context).settings.arguments as String;
     return Scaffold(
-        appBar: feedAppbar(false, context, "Feeds"),
+        appBar: feedAppbar(false, context, "New Arrivals"),
         extendBodyBehindAppBar: true,
         body: Body(
           products: (popular == "popular")

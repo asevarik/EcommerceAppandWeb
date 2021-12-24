@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:ECommerceApp/Common_utils/Consts/colors.dart';
 import 'package:ECommerceApp/Common_utils/Widgets/GlobalWidgets/alertDialog.dart';
 import 'package:ECommerceApp/Services/AuthController.dart';
@@ -19,6 +18,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _formkey = GlobalKey<FormState>();
   String _emailAddress = '';
   String _password = '';
+  String _address = '';
   String number;
   String name;
   bool issecure = true;
@@ -28,6 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final FocusNode _passFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _phoneFocusNode = FocusNode();
+  final FocusNode _addressfocusNode = FocusNode();
   void submitForm() async {
     final isValid = _formkey.currentState.validate();
     FocusScope.of(context).unfocus();
@@ -49,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
             await _authController.userRegisteration(_emailAddress, _password);
         if (result == 'true') {
           if (await _db.userRegistration(_authController.getUser().uid, name,
-              imgurl, number, _emailAddress)) {
+              imgurl, number, _emailAddress, _address)) {
             Navigator.canPop(context) ? Navigator.pop(context) : null;
           } else {
             _alertbox.showDialogg(
@@ -291,7 +292,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             },
                             textInputAction: TextInputAction.next,
                             onEditingComplete: () => FocusScope.of(context)
-                                .requestFocus(_phoneFocusNode),
+                                .requestFocus(_addressfocusNode),
                             focusNode: _passFocusNode,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
@@ -315,6 +316,31 @@ class _SignUpPageState extends State<SignUpPage> {
                               _password = value;
                             },
                             obscureText: issecure),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextFormField(
+                          key: ValueKey('Address'),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Please enter valid Address";
+                            }
+                            return null;
+                          },
+                          focusNode: _addressfocusNode,
+                          onEditingComplete: () => FocusScope.of(context)
+                              .requestFocus(_phoneFocusNode),
+                          decoration: InputDecoration(
+                            border: const UnderlineInputBorder(),
+                            filled: true,
+                            prefixIcon: Icon(Icons.home_filled),
+                            labelText: 'Address Goes Here',
+                            fillColor: Theme.of(context).primaryColorLight,
+                          ),
+                          onSaved: (value) {
+                            _address = value;
+                          },
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -416,7 +442,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
                         style: OutlinedButton.styleFrom(
                           shape: StadiumBorder(),
                           side: BorderSide(
@@ -430,22 +458,6 @@ class _SignUpPageState extends State<SignUpPage> {
                               .textTheme
                               .headline5
                               .copyWith(color: Colors.red),
-                        )),
-                    OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          shape: StadiumBorder(),
-                          side: BorderSide(
-                            width: 2,
-                            color: Colors.deepPurple.shade200,
-                          ),
-                        ),
-                        child: Text(
-                          "Facebook",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              .copyWith(color: Colors.purple),
                         )),
                   ],
                 ),

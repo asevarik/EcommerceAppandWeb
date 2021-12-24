@@ -7,6 +7,7 @@ class UserData {
   static String email;
   static String photourl;
   static String joinedDate;
+  static String address;
 
   void getuserData() async {
     await DataBaseServices().getUserData(AuthController.auth.currentUser.uid);

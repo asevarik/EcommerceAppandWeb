@@ -1,10 +1,10 @@
-import 'package:ECommerceApp/Common_utils/Consts/Size_config.dart';
 import 'package:ECommerceApp/Common_utils/Consts/theme_data.dart';
 import 'package:ECommerceApp/Common_utils/provider/Dark_Theme_provider.dart';
 import 'package:ECommerceApp/Common_utils/provider/Products.dart';
 import 'package:ECommerceApp/Common_utils/provider/order_provider.dart';
 import 'package:ECommerceApp/screens/intermediatepay.dart';
 import 'package:ECommerceApp/screens/orders/order.dart';
+import 'package:ECommerceApp/screens/user_info.dart';
 import 'package:ECommerceApp/screens/wishlist/Wishlist.dart';
 import 'package:ECommerceApp/screens/auth/Signup.dart';
 import 'package:ECommerceApp/screens/auth/forgotPassword.dart';
@@ -20,6 +20,10 @@ import 'package:ECommerceApp/screens/search.dart';
 import 'package:ECommerceApp/screens/themeSelectionscreen.dart';
 import 'package:ECommerceApp/screens/upload_product_form.dart';
 import 'package:ECommerceApp/screens/user_State.dart';
+import 'package:ECommerceApp/webPlatformWidgets/HomePage/homePage.dart';
+import 'package:ECommerceApp/webPlatformWidgets/Wcart.dart';
+import 'package:ECommerceApp/webPlatformWidgets/login_signup/LoginSigup.dart';
+import 'package:ECommerceApp/webPlatformWidgets/Wuser_info.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -110,6 +114,12 @@ class _MyAppState extends State<MyApp> {
                           Product_Details.routeName: (context) =>
                               Product_Details(),
                           Search.routeName: (context) => Search(),
+                          UserInfo.routename: (context) => UserInfo(),
+                          //!below widgets is web widgets
+                          LoginSignUp.routename: (context) => LoginSignUp(),
+                          WuserInfo.routename: (context) => WuserInfo(),
+                          WcartPage.routName: (context) => WcartPage(),
+                          WHomePage.routeName: (context) => WHomePage(),
                         },
                         home: UserState(),
                       );

@@ -7,6 +7,7 @@ import 'package:ECommerceApp/Common_utils/provider/Dark_Theme_provider.dart';
 import 'package:ECommerceApp/Models/user.dart';
 import 'package:ECommerceApp/Services/AuthController.dart';
 import 'package:ECommerceApp/screens/orders/order.dart';
+import 'package:ECommerceApp/screens/user_settings.dart';
 import 'package:ECommerceApp/screens/wishlist/Wishlist.dart';
 import 'package:ECommerceApp/screens/auth/Signup.dart';
 import 'package:ECommerceApp/screens/cart/cart.dart';
@@ -19,6 +20,7 @@ import 'package:toast/toast.dart';
 import 'package:get/get.dart';
 
 class UserInfo extends StatefulWidget {
+  static final String routename = "/UserInfo";
   @override
   _UserInfoState createState() => _UserInfoState();
 }
@@ -217,12 +219,33 @@ class _UserInfoState extends State<UserInfo> {
                     ),
                     userlistTile(
                         'Email', UserData.email ?? '', Icons.email, () {}),
+                    userlistTile('Phone', UserData.phone ?? '', Icons.phone,
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserSettingScreen(
+                                  screentitile: 'Phone',
+                                  screenupdatevalue: UserData.phone,
+                                  updatetitile: 'phone',
+                                )),
+                      );
+                    }),
                     userlistTile(
-                        'Phone', UserData.phone ?? '', Icons.phone, () {}),
-                    userlistTile('Shipping Address', UserData.email ?? '',
-                        Icons.email, () {}),
+                        'Shipping Address', UserData.address ?? '', Icons.home,
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserSettingScreen(
+                                  screentitile: 'Shipping Address',
+                                  screenupdatevalue: UserData.address,
+                                  updatetitile: 'address',
+                                )),
+                      );
+                    }),
                     userlistTile('Joined Date', UserData.joinedDate ?? '',
-                        Icons.email, () {}),
+                        Icons.date_range, () {}),
                     Padding(
                       padding:
                           EdgeInsets.only(left: SizeConfig.screenWidth / 50),
